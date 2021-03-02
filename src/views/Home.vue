@@ -11,10 +11,19 @@
           </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-btn
+            icon
+            color="secondary"
+            @click="isWritePostDialogOpen = true"
+            v-if="!isLargeScreen"
+          >
+            <v-icon>mdi-send</v-icon>
+          </v-btn>
+          <v-btn
             color="secondary"
             depressed
             light
             @click="isWritePostDialogOpen = true"
+            v-if="isLargeScreen"
           >
             <span class="text-capitalize mr-2">Post</span>
             <v-icon>mdi-send</v-icon>
@@ -99,6 +108,13 @@ export default {
         id: +new Date(),
       },
     };
+  },
+
+  computed: {
+    isLargeScreen() {
+      const breakpoint = this.$vuetify.breakpoint.name;
+      return ["md", "lg", "xl"].includes(breakpoint);
+    },
   },
 
   methods: {
