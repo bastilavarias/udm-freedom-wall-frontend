@@ -105,7 +105,7 @@ export default {
     async getPosts($state) {
       try {
         const response = await axios.get(
-          `${process.env.VUE_APP_BACKEND_URL}/api/post?page=${this.scrollOptions.page}`
+          `https://udm-fw-development.herokuapp.com/api/post?page=${this.scrollOptions.page}`
         );
         const result = response.data;
         const posts = result.data.data;

@@ -125,7 +125,7 @@ export default {
       if (this.flair) formData.append("flair", this.flair);
       try {
         const response = await axios.post(
-          `${process.env.VUE_APP_BACKEND_URL}/api/post`,
+          "https://udm-fw-development.herokuapp.com/api/post",
           formData
         );
         const { success, data } = response.data;
